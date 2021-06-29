@@ -1,0 +1,13 @@
+<%= turbo_frame_tag 'new_board_one' do %>
+  <div data-board-target='error'></div>
+  <%= render 'form', board: @board %>
+<% end %>
+
+<%= turbo_frame_tag 'new_board_two' do %>
+  <%= render 'form', board: @board %>
+  <%= link_to 'Back', boards_path %>
+<% end %>
+
+<%= turbo_frame_tag 'new_board_three' do %>
+  <%= render 'form', board: @board %>
+<% end %>

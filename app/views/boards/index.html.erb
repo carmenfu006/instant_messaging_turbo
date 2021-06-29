@@ -1,0 +1,36 @@
+<section data-controller='board'>
+  <h1>Board Index</h1>
+
+  <h1>Straight away render the partial form</h1>
+  <!-- turbo frames wrap partial form -->
+  <%= turbo_frame_tag 'new_board_one' do %>
+    <div data-board-target='error'></div>
+    <%= render 'form', board: @board %>
+  <% end %>
+
+  <h1>Render the partial form by calling the path</h1>
+  <!-- turbo frames click path to show form -->
+  <%= turbo_frame_tag 'new_board_two' do %>
+    <%= link_to 'Create new board', new_board_path %>
+  <% end %>
+
+  <h1>Straight away source the partial form from new.html.erb</h1>
+  <!-- lazy loading frames -->
+  <%= turbo_frame_tag 'new_board_three', src: new_board_path %>
+
+
+  <br>
+  <h1>List of boards</h1>
+  <section class='list-of-boards' data-board-target='list'>
+    <% if @boards.any? %>
+      <% @boards.each do |board| %>
+        <br>
+        <div class='single-board'>
+          <%= link_to board_path(board) do %>
+            <%= board.name %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+</section>

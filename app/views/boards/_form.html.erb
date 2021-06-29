@@ -1,0 +1,13 @@
+<%= form_with(model: board, data: { action: "turbo:submit-end->board#create" }) do |f| %>
+  <%= render partial: 'shared/error', locals: { object: board } %>
+  <%= f.text_field :name %>
+  <%= f.submit 'save' %>
+<% end %>
+
+
+<!-- To not use stimulus and still get to update to your page with new created object then use '_top' to jump out of the frame -->
+<!-- <%= form_with(model: board, html: { 'data-turbo-frame': '_top' }) do |f| %>
+  <%= render partial: 'shared/error', locals: { object: board } %>
+  <%= f.text_field :name %>
+  <%= f.submit 'save' %>
+<% end %> -->
