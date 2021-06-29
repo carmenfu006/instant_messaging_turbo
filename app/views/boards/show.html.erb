@@ -1,3 +1,8 @@
 <h1>Board show page</h1>
 
-<%= @board.name %>
+<%= turbo_frame_tag 'board' do %>
+  <%= @board.name %>
+  <%= link_to 'Edit', edit_board_path(@board) %>
+<% end %>
+
+<%= button_to 'Delete', board_path(@board), method: :delete, data: { controller:  "confirmation", confirmation_message: "Are you sure?", action: "click->confirmation#confirm" } %>

@@ -1,0 +1,6 @@
+<h1>Board Edit</h1>
+
+<%= turbo_frame_tag 'board' do %>
+  <%= render 'form', board: @board %>
+  <%= link_to 'Cancel', board_path(@board) %>
+<% end %>
