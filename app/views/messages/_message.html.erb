@@ -1,0 +1,4 @@
+<p id="<%= dom_id message %> ">
+  <%= message.created_at.to_s(:short) %>: <%= message.content %>
+  <%= button_to 'Delete', room_message_path(message.room, message), method: :delete %>
+</p>
