@@ -2,7 +2,7 @@ import { Controller } from 'stimulus'
 
 export default class extends Controller {
 
-  static targets = ['list', 'error']
+  static targets = ['list', 'message']
 
   create(event) {
     // to check if the form has been successfully submitted
@@ -31,7 +31,7 @@ export default class extends Controller {
 
       this.addBoardToOption(board_name, board_id)
     } else {
-      this.errorTarget.textContent = 'Name cannot be blank'
+      this.messageTarget.textContent = 'Name cannot be blank'
     }
   }
 

@@ -4,7 +4,7 @@
   <h1>Straight away render the partial form</h1>
   <!-- turbo frames wrap partial form -->
   <%= turbo_frame_tag 'new_board_one' do %>
-    <div data-board-target='error'></div>
+    <div data-board-target='message'></div>
     <%= render 'form', board: @board %>
   <% end %>
 
@@ -38,9 +38,8 @@
 
   <br>
   <h1>Create of Pin</h1>
-
+  <div data-pin-target='message'></div>
   <%= turbo_frame_tag 'new_pin' do %>
-    <div data-pin-target='error'></div>
     <%= render 'pins/form', pin: @pin, boards: @boards %>
   <% end %>
 

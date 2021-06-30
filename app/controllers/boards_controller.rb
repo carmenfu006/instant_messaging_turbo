@@ -30,6 +30,8 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
+    @boards = Board.all
+    @pin = Pin.new
   end
 
   def edit
