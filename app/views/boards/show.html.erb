@@ -5,4 +5,4 @@
   <%= link_to 'Edit', edit_board_path(@board) %>
 <% end %>
 
-<%= button_to 'Delete', board_path(@board), method: :delete, data: { controller:  "confirmation", confirmation_message: "Are you sure?", action: "click->confirmation#confirm" } %>
+<%= button_to 'Delete', board_path(@board), method: :delete, data: { controller:  "confirmation", confirmation_message_value: "Are you sure?", action: "click->confirmation#confirm" } %>
