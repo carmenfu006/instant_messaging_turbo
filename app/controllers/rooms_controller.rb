@@ -4,7 +4,6 @@ class RoomsController < ApplicationController
   # GET /rooms or /rooms.json
   def index
     @rooms = Room.all
-    @room = Room.find(1)
   end
 
   # GET /rooms/1 or /rooms/1.json
@@ -26,7 +25,7 @@ class RoomsController < ApplicationController
 
     respond_to do |format|
       if @room.save
-        format.html { redirect_to root_path, notice: "Room was successfully created." }
+        format.html { redirect_to rooms_path, notice: "Room was successfully created." }
         format.json { render :show, status: :created, location: @room }
       else
         format.html { render :new, status: :unprocessable_entity }

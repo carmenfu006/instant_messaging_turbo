@@ -27,12 +27,3 @@
 <%= turbo_frame_tag 'new_room' do %>
   <%= link_to 'New Room', new_room_path %>
 <% end %>
-
-
-
-
-<%= turbo_stream_from @room %>
-
-<div id="messages">
-  <%= render @room.messages %>
-</div>

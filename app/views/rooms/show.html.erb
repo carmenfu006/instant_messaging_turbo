@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<%= turbo_stream_from @room %>
-
 <%= turbo_frame_tag dom_id(@room) do %>
   <p>
     <strong>Name:</strong>
@@ -12,8 +10,11 @@
   <%= link_to 'Back', rooms_path, 'data-turbo-frame': '_top' %>
 <% end %>
 
+<%= turbo_stream_from @room %>
 <div id="messages">
-  <%= render @room.messages %>
+  <%= turbo_frame_tag @room do %>
+    <%= render @room.messages %>
+  <% end %>
 </div>
 
-<%= turbo_frame_tag 'new_message', src: new_room_message_path(@room) %>
+<%= turbo_frame_tag 'new_message', src: new_room_message_path(@room), target: '_top' %>
