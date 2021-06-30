@@ -1,3 +1,4 @@
 <%= turbo_frame_tag 'new_pin' do %>
+  <div data-pin-target='error'></div>
   <%= render 'form', pin: @pin, boards: @boards %>
 <% end %>

@@ -1,4 +1,4 @@
-<section data-controller='board'>
+<section data-controller='board pin'>
   <h1>Board Index</h1>
 
   <h1>Straight away render the partial form</h1>
@@ -40,6 +40,7 @@
   <h1>Create of Pin</h1>
 
   <%= turbo_frame_tag 'new_pin' do %>
+    <div data-pin-target='error'></div>
     <%= render 'pins/form', pin: @pin, boards: @boards %>
   <% end %>
 
@@ -52,7 +53,7 @@
         <div class='single-pin'>
           <%= link_to pin_path(pin) do %>
             <% if pin.image.attached? %>
-              <%= image_tag pin.image, style: 'width: 100px;' %>
+              <%= image_tag pin.image, style: 'width: 100px;', data: { pin_target: 'image'} %>
             <% end %>
             <%= pin.title %>
           <% end %>

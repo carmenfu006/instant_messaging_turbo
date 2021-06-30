@@ -10,7 +10,7 @@ class PinsController < ApplicationController
 
     respond_to do |format|
       if pin.save
-        format.html { redirect_to new_pin_path }
+        format.html { redirect_to new_pin_path(id: pin) }
       else
         format.html { }
       end
