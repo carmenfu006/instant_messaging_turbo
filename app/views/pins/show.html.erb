@@ -1,0 +1,14 @@
+<h1>Pin show page</h1>
+
+<section>
+  <%= turbo_frame_tag 'pin' do %>
+    <% if @pin.image.attached? %>
+      <%= image_tag @pin.image, style: 'width: 200px;', data: { pin_target: 'image'} %>
+    <% end %>
+    <%= @pin.title %>
+    <%= @pin.about %>
+    <%= link_to 'Edit', edit_pin_path(@pin) %>
+  <% end %>
+
+  <%= button_to 'Delete', pin_path(@pin), method: :delete, data: { controller:  "confirmation", confirmation_message_value: "Are you sure?", action: "click->confirmation#confirm" } %>
+</section>
