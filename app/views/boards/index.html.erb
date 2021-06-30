@@ -33,4 +33,32 @@
       <% end %>
     <% end %>
   </section>
+
+
+
+  <br>
+  <h1>Create of Pin</h1>
+
+  <%= turbo_frame_tag 'new_pin' do %>
+    <%= render 'pins/form', pin: @pin, boards: @boards %>
+  <% end %>
+
+  <br>
+  <h1>List of Pins</h1>
+  <section class='list-of-pins' data-pin-target='list'>
+    <% if @pins.any? %>
+      <% @pins.each do |pin| %>
+        <br>
+        <div class='single-pin'>
+          <%= link_to pin_path(pin) do %>
+            <% if pin.image.attached? %>
+              <%= image_tag pin.image, style: 'width: 100px;' %>
+            <% end %>
+            <%= pin.title %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+
 </section>

@@ -2,6 +2,8 @@ class BoardsController < ApplicationController
   def index
     @board = Board.new
     @boards = Board.all
+    @pin = Pin.new
+    @pins = Pin.all
   end
 
   def new

@@ -16,7 +16,7 @@ export default class extends Controller {
       let form = event.detail.formSubmission.formElement
       let board_name = form.querySelector('[id="board_name"]').value
       let board_id = url.split('=')[1]
-      console.log()
+
       let element = document.createElement('div');
       let list = this.listTarget
 
@@ -29,8 +29,18 @@ export default class extends Controller {
 
       list.appendChild(element);
 
+      this.addBoardToOption(board_name, board_id)
     } else {
       this.errorTarget.textContent = 'Name cannot be blank'
     }
+  }
+
+  addBoardToOption(name, id) {
+    let pin_board = document.getElementById('pin_board_id');
+    let option = document.createElement("option");
+
+    option.text = name
+    option.value = id
+    pin_board.add(option)
   }
 }

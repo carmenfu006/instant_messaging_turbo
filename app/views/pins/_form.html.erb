@@ -1,0 +1,7 @@
+<%= form_with(model: pin) do |f|%>
+  <%= f.select :board_id, options_from_collection_for_select(boards, :id, :name)%>
+  <%= f.file_field :image %>
+  <%= f.text_field :title, placeholder: 'Title' %>
+  <%= f.text_field :about, placeholder: 'About' %>
+  <%= f.submit 'Save' %>
+<% end %>
