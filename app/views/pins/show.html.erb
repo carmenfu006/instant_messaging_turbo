@@ -1,7 +1,7 @@
 <h1>Pin show page</h1>
 
 <section>
-  <%= turbo_frame_tag 'pin' do %>
+  <%= turbo_frame_tag dom_id(@pin) do %>
     <% if @pin.image.attached? %>
       <%= image_tag @pin.image, style: 'width: 200px;', data: { pin_target: 'image'} %>
     <% end %>
@@ -12,3 +12,14 @@
 
   <%= button_to 'Delete', pin_path(@pin), method: :delete, data: { controller:  "confirmation", confirmation_message_value: "Are you sure?", action: "click->confirmation#confirm" } %>
 </section>
+
+
+<br>
+<section id='comments' class='pin-comment'>
+  <%= turbo_stream_from @pin %>
+  <%= turbo_frame_tag @pin do %>
+    <%= render @pin.comments, pin: @pin %>
+  <% end %>
+</section>
+
+<%= turbo_frame_tag 'new_comment', src: new_pin_comment_path(@pin, @comment) %>

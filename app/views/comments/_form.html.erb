@@ -1,0 +1,5 @@
+<%= form_with(model: [pin, comment], id: dom_id(comment), data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }) do |f| %>
+  <%= render 'shared/error', object: comment %>
+  <%= f.text_field :body %>
+  <%= f.submit 'Comment' %>
+<% end %>

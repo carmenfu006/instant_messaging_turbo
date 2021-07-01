@@ -1,0 +1,6 @@
+<%= turbo_frame_tag dom_id(comment) do %>
+  <br>
+  <%= comment.body %>
+  <%= link_to 'Edit', edit_pin_comment_path(comment.pin, comment)%>
+  <%= button_to 'Delete', pin_comment_path(comment.pin, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
